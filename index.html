@@ -15,14 +15,14 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(135deg, #ff6b9d, #ffd93d, #6bcf7f, #4ecdc4, #45b7d1);
-            background-size: 300% 300%;
-            animation: gradientShift 8s ease infinite;
+            background: linear-gradient(135deg, #006633, #ffcc00, #000000, #006633);
+            background-size: 400% 400%;
+            animation: jamaicaGradient 10s ease infinite;
             min-height: 100vh;
             padding: 20px;
         }
 
-        @keyframes gradientShift {
+        @keyframes jamaicaGradient {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
@@ -67,7 +67,7 @@
         .title {
             font-size: 3.5em;
             font-weight: 800;
-            background: linear-gradient(45deg, #ff6b9d, #ffd93d, #6bcf7f);
+            background: linear-gradient(45deg, #006633, #ffcc00, #000000);
             background-clip: text;
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -116,7 +116,7 @@
             bottom: 0;
             border-radius: 20px;
             padding: 2px;
-            background: linear-gradient(135deg, #ff6b9d, #ffd93d, #6bcf7f, #4ecdc4);
+            background: linear-gradient(135deg, #006633, #ffcc00, #000000, #006633);
             -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
             -webkit-mask-composite: destination-out;
             mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
@@ -168,33 +168,33 @@
         }
 
         .vibe {
-            background: linear-gradient(135deg, #ff6b9d20, #ffd93d20);
+            background: linear-gradient(135deg, rgba(0,102,51,0.2), rgba(255,204,0,0.2));
             padding: 15px;
             border-radius: 15px;
             margin-top: 15px;
-            border-left: 4px solid #ff6b9d;
+            border-left: 4px solid #006633;
         }
 
         .vibe strong {
-            color: #e84393;
+            color: #006633;
             font-weight: 600;
         }
 
         .special-highlight {
-            background: linear-gradient(135deg, #6bcf7f20, #4ecdc420);
-            border-left: 4px solid #00b894;
+            background: linear-gradient(135deg, rgba(255,204,0,0.2), rgba(0,102,51,0.15));
+            border-left: 4px solid #ffcc00;
         }
 
         .elegant-highlight {
-            background: linear-gradient(135deg, #ddd6fe20, #e0e7ff20);
-            border-left: 4px solid #8b5cf6;
+            background: linear-gradient(135deg, rgba(0,0,0,0.1), rgba(255,204,0,0.15));
+            border-left: 4px solid #000000;
         }
 
         .footer {
             text-align: center;
             margin-top: 30px;
             padding: 20px;
-            background: linear-gradient(135deg, rgba(255,107,157,0.1), rgba(255,217,61,0.1));
+            background: linear-gradient(135deg, rgba(0,102,51,0.1), rgba(255,204,0,0.1));
             border-radius: 20px;
             position: relative;
             z-index: 2;
@@ -242,6 +242,81 @@
         .floating-emoji:nth-child(3) { bottom: 30%; left: 20%; animation-delay: -6s; }
         .floating-emoji:nth-child(4) { bottom: 15%; right: 25%; animation-delay: -9s; }
         .floating-emoji:nth-child(5) { top: 60%; left: 5%; animation-delay: -12s; }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 15px 20px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            transition: all 0.3s ease;
+            max-width: 300px;
+        }
+
+        .music-player:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.25);
+        }
+
+        .play-pause-btn {
+            background: linear-gradient(135deg, #006633, #ffcc00);
+            border: none;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+        }
+
+        .play-pause-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 15px rgba(0, 102, 51, 0.4);
+        }
+
+        .music-info {
+            flex: 1;
+            min-width: 0;
+        }
+
+        .song-title {
+            font-weight: 600;
+            color: #2d3436;
+            font-size: 0.9em;
+            margin-bottom: 3px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .artist-name {
+            color: #636e72;
+            font-size: 0.8em;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .music-note {
+            font-size: 1.2em;
+            animation: musicPulse 2s ease-in-out infinite;
+        }
+
+        @keyframes musicPulse {
+            0%, 100% { transform: scale(1); opacity: 0.7; }
+            50% { transform: scale(1.2); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -367,8 +442,66 @@
 
         <div class="footer">
             <div class="footer-text">Get ready for the most magical celebration! 🌟</div>
-            <div class="hearts">💖 🌺 💖 🌺 💖</div>
+            <div class="hearts">💚 💛 🖤 💚 💛</div>
         </div>
+
+        <!-- Music Player -->
+        <div class="music-player">
+            <button class="play-pause-btn" onclick="toggleMusic()" id="playBtn">
+                ▶️
+            </button>
+            <div class="music-info">
+                <div class="song-title">Summertime Vibes</div>
+                <div class="artist-name">Jamaica Playlist 🇯🇲</div>
+            </div>
+            <div class="music-note">🎵</div>
+        </div>
+
+        <script>
+            let isPlaying = false;
+            
+            function toggleMusic() {
+                const playBtn = document.getElementById('playBtn');
+                const musicNote = document.querySelector('.music-note');
+                
+                if (!isPlaying) {
+                    // Start "playing" music
+                    playBtn.innerHTML = '⏸️';
+                    playBtn.style.background = 'linear-gradient(135deg, #ffcc00, #000000)';
+                    musicNote.style.animationDuration = '0.5s';
+                    
+                    // Add visual feedback that music is playing
+                    document.querySelector('.song-title').textContent = '🎶 Now Playing: Summertime';
+                    document.querySelector('.artist-name').textContent = 'Vybz Kartel & Jamaica Vibes';
+                    
+                    isPlaying = true;
+                } else {
+                    // Stop "playing" music
+                    playBtn.innerHTML = '▶️';
+                    playBtn.style.background = 'linear-gradient(135deg, #006633, #ffcc00)';
+                    musicNote.style.animationDuration = '2s';
+                    
+                    document.querySelector('.song-title').textContent = 'Summertime Vibes';
+                    document.querySelector('.artist-name').textContent = 'Jamaica Playlist 🇯🇲';
+                    
+                    isPlaying = false;
+                }
+            }
+
+            // Add some pulsing animation when playing
+            document.addEventListener('DOMContentLoaded', function() {
+                const musicPlayer = document.querySelector('.music-player');
+                
+                setInterval(() => {
+                    if (isPlaying) {
+                        musicPlayer.style.boxShadow = '0 8px 25px rgba(0, 102, 51, 0.3)';
+                        setTimeout(() => {
+                            musicPlayer.style.boxShadow = '0 8px 25px rgba(0, 0, 0, 0.2)';
+                        }, 500);
+                    }
+                }, 1000);
+            });
+        </script>
     </div>
 </body>
 </html>
